@@ -20,3 +20,23 @@ def write_file(working_directory, file_path, content):
         return f"Successfully wrote to file '{abs_file_path}'. ({len(content)} characters written.)"
     except Exception as e:
         return f"Error writing to file '{abs_file_path}': {e}" 
+    
+
+schema_write_file = {
+    "name": "write_file",
+    "description": "Overwrites an existing file or writes to a new file if it doesn't exist (and creates required parent directories safely), constrained to the current working directory .",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "file_path": {
+                "type": "string",
+                "description": "The path to the file to write."
+            },
+            "content": {
+                "type": "string",
+                "description": "The contents to write to the file as a string."
+            }
+        },
+        "required": ["file_path", "content"]
+    }
+}

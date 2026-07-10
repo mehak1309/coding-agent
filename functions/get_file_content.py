@@ -23,3 +23,18 @@ def get_file_content(working_directory, file_path):
     except Exception as e:
         return f"Error reading file '{file_path}': {e}"
  
+
+schema_get_file_content = {
+    "name": "get_file_content",
+    "description": "Gets the contents of the given file as a string, constrained to the working directory.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "file_path": {
+                "type": "string",
+                "description": "The path to the file, from the working directory."
+            }
+        },
+        "required": ["file_path"]
+    }
+}

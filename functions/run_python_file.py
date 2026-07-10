@@ -32,3 +32,26 @@ def run_python_file(working_directory, file_path, args=[]):
         return final_string
     except Exception as e:
         return f"Error running Python file '{file_path}': {e}"
+ 
+
+schema_run_python_file = {
+    "name": "run_python_file",
+    "description": "Runs a python file with the python3 interpreter. Accepts additional CLI args as an optional array. ",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "file_path": {
+                "type": "string",
+                "description": "The file to run, relative to the working directory. "
+            },
+            "args": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "An optional array of strings to be used as the CLI arguments for the Python file. "
+            }
+        },
+        "required": ["file_path"]
+    }
+}
