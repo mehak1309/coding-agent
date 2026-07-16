@@ -14,16 +14,14 @@ matching function in `functions/`, and their results are fed back to Claude.
 This loop repeats (up to 20 iterations) until Claude replies with a final
 text answer instead of a tool call.
 
-All file operations are sandboxed to a single working directory (currently
-`calculator/`, set in `call_function.py`) — any path that resolves outside of
-it is rejected.
+All file operations are sandboxed to a single working directory (`calculator/`).
 
 ## Available tools
 
-- **get_files_info** — list files/directories in a given directory, with size and type.
-- **get_file_content** — read a file's contents (truncated to `MAX_CHARS`, see `config.py`).
-- **write_file** — create or overwrite a file, creating parent directories as needed.
-- **run_python_file** — run a `.py` file with `python3`, optionally passing CLI arguments.
+- **get_files_info**: list files/directories in a given directory, with size and type.
+- **get_file_content**: read a file's contents (truncated to `MAX_CHARS`, see `config.py`).
+- **write_file**: create or overwrite a file, creating parent directories as needed.
+- **run_python_file**: run a `.py` file with `python3`, optionally passing CLI arguments.
 
 ## Setup
 
